@@ -116,4 +116,17 @@ copy_count("copy9","num9")
 
 
 
+document.getElementById("clear-btn")
+.addEventListener("click", function(e){
+  e.preventDefault()
+  
+  const historyBody = document.getElementById("history-body")
+
+  while(historyBody.firstChild){
+    historyBody.removeChild(historyBody.firstChild)
+  }
+})
+
+
+
 
