@@ -1,4 +1,4 @@
-
+// Heart Count Function
 function heart_count_fun(id)
 {
   document.getElementById(id)
@@ -7,7 +7,9 @@ function heart_count_fun(id)
   const heart_count_value = parseInt(document.getElementById("heart-count").innerText)
   document.getElementById("heart-count").innerText = heart_count_value + 1;
 }) 
+
 }
+
 heart_count_fun("heart1")
 heart_count_fun("heart2")
 heart_count_fun("heart3")
@@ -26,6 +28,7 @@ function callWithHistory(id, nameId, numberId) {
     const coinElem = document.getElementById("base-coin");
     let coin_value = parseInt(coinElem.innerText);
 
+    // check coins
     if (coin_value - 20 < 0) {
       alert("Invalid: not enough coins");
       return;
@@ -34,13 +37,13 @@ function callWithHistory(id, nameId, numberId) {
     coin_value -= 20;
     coinElem.innerText = coin_value;
 
+    // get name & number
     const nameEl = document.getElementById(nameId);
     const numberEl = document.getElementById(numberId);
     const name_value = nameEl.innerText;
     const number_value = numberEl.innerText;
 
     alert("Calling " + name_value + " " + number_value);
-
 
     const newdiv = document.createElement("div");
     const innerDiv = document.createElement("div");
@@ -53,10 +56,12 @@ function callWithHistory(id, nameId, numberId) {
     history_number.innerText = number_value;
     history_time.innerText = new Date().toLocaleTimeString();
 
+    //adding style
     history_name.className = nameEl.className + " text-[18px] font-bold";
     history_number.className = numberEl.className + " text-gray-500";
     history_time.className = "text-18 font-bold"
 
+    // assemble divs
     innerDiv.appendChild(history_name);
     innerDiv.appendChild(history_number);
 
@@ -69,6 +74,7 @@ function callWithHistory(id, nameId, numberId) {
   });
 }
 
+// --- Function calls ---
 callWithHistory("call-btn1","name1","num1");
 callWithHistory("call-btn2","name2","num2");
 callWithHistory("call-btn3","name3","num3");
@@ -81,6 +87,9 @@ callWithHistory("call-btn9","name9","num9");
 
 
 
+
+// Copy Count
+
 function copy_count(id,number)
 {
   document.getElementById(id)
@@ -90,6 +99,7 @@ function copy_count(id,number)
     const copy_count_value = parseInt(document.getElementById("copy-count").innerText)
     document.getElementById("copy-count").innerText = copy_count_value + 1;
 
+    // clipboard copy
 
     const number_value = document.getElementById(number).innerText
 
@@ -116,6 +126,8 @@ copy_count("copy9","num9")
 
 
 
+// Clear Button
+
 document.getElementById("clear-btn")
 .addEventListener("click", function(e){
   e.preventDefault()
@@ -126,7 +138,5 @@ document.getElementById("clear-btn")
     historyBody.removeChild(historyBody.firstChild)
   }
 })
-
-
 
 
